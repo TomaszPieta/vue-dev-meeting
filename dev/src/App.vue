@@ -74,7 +74,7 @@ body {
       background-color: red;
       color: white;
       border: none;
-      padding: 8px;
+      padding: 10px;
     }
     button:hover {
       background-color: white;
