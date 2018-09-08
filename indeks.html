@@ -49,8 +49,10 @@
       </li>
     </ul>
     <p v-if="!todos.length">No products!</p>
+
     <form action="" v-on:submit="addTodo">
       <input type="text" value="enter todo name" v-model="newTodo">
+      <button v-on:click="addTodo">Add new Todo</button>
     </form>
     <br>
     <button v-on:click="deleteLast">Delete last Todo</button>
@@ -87,7 +89,7 @@
         },
         addTodo(e) {
           e.preventDefault();
-          this.todos.push({ todo: this.newTodo });
+          this.todos.push({ todo: this.newTodo, id: 5 });
           this.newTodo = '';
         }
       }
