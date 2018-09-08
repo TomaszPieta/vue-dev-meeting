@@ -3,19 +3,19 @@
     <h3>My awasome todo list:</h3>
     <TodoList :todos="todos"></TodoList>
     <p v-if="!todos.length">No products!</p>
-    <Form></Form>
-    <button v-on:click="deleteLast">Delete last Todo</button>
+    <AddTodo></AddTodo>
+    <button v-on:click="deleteLast">{{buttonLabel}}</button>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList'
-import Form from './components/Form'
+import Form from './components/AddTodo'
 
 export default {
   name: 'app',
   components: {
-    TodoList, Form
+    TodoList, AddTodo
   },
   data() {
     return {
