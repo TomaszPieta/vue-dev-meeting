@@ -10,7 +10,7 @@
     <p v-if="!todos.length">No products!</p>
 
     <form action="" v-on:submit.prevent="addTodo()">
-      <input type="text" value="enter todo name" v-model="newTodo">
+      <input type="text" value="enter todo name" v-model="newTodo" v-validate="'required:true'">
       <button>Add new Todo</button>
     </form>
     <br>
