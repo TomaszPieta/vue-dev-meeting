@@ -5,12 +5,29 @@
   <meta charset="UTF-8">
   <title>Vue.js Start</title>
   <style>
+    body {
+      background-color: green;
+      text-align: center;
+      font-size: 1.2rem;
+    }
     #app {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      background-color: yellow;
       color: #2c3e50;
-      margin-top: 60px;
+      margin: 60px auto;
+      padding: 30px;
+      width: 400px;
+    }
+    ul, li {
+      list-style-type: none;
+    }
+    button {
+      background-color: red;
+      color: white;
+    }
+    button:hover {
+      background-color: white;
+      color: red;
     }
   </style>
 </head>
@@ -20,17 +37,23 @@
   </div>
   <h1>Vue.js</h1>
   <p>is ready to start an adventure</p>
+  
 
   <div id="app">
     <h2>{{ greeting }}</h2>
     <h3>My awasome todo list:</h3>
     <ul>
       <li v-for="todo in todos">
-        {{todo.id}} - {{todo.todo}}
+        {{todo.id}} - {{todo.todo}} 
+        <button v-on:click="deleteTodo">X</button>
       </li>
     </ul>
-    <input type="text" value="enter todo name"><br>
-    <button v-on:click="deleteTodo">Delete last Todo</button>
+    <p v-if="!todos.length">No products!</p>
+    <form action="" v-on:submit="addTodo">
+      <input type="text" value="enter todo name" v-model="newTodo">
+    </form>
+    <br>
+    <button v-on:click="deleteLast">Delete last Todo</button>
   </div>
 
 
@@ -42,6 +65,7 @@
       el: '#app',
       data: {
         greeting: 'Hello DevMeetings!',
+        newTodo: '',
         todos: [{
           id: 0, todo: 'buy milk'
         },{
@@ -55,8 +79,15 @@
         }]
       },
       methods: {
-        deleteTodo() {
+        deleteLast() {
           this.todos.pop();
+        },
+        deleteTodo(id, todo) {
+          this.todos.splice(id,1)
+        },
+        addTodo(e) {
+          e.preventDefault();
+          this.todos.push({ todo: this.newTodo })
         }
       }
     })
