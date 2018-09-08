@@ -1,27 +1,22 @@
 <template>
   <div id="app">
     <h3>My awasome todo list:</h3>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id">
-        {{todo.id}} - {{todo.todo}} 
-        <button v-on:click="deleteTodo(todo.id)">X</button>
-      </li>
-    </ul>
+    <TodoList :todos="todos"></TodoList>
     <p v-if="!todos.length">No products!</p>
-
-    <form action="" v-on:submit.prevent="addTodo()">
-      <input type="text" value="enter todo name" v-model="newTodo" v-validate="'required:true'">
-      <button>Add new Todo</button>
-    </form>
-    <br>
+    <Form></Form>
     <button v-on:click="deleteLast">Delete last Todo</button>
   </div>
 </template>
 
 <script>
+import TodoList from './components/TodoList'
+import Form from './components/Form'
 
 export default {
   name: 'app',
+  components: {
+    TodoList, Form
+  },
   data() {
     return {
       todos: [{
