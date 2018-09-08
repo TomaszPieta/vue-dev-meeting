@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import uuid from 'uuid/v4'
+
 export default {
   name: "Addtodo",
   data() {
@@ -33,7 +35,7 @@ export default {
     //   });
     // }
     addTodo() {
-      this.$emit('add-todo', { ...this.newTodo});
+      this.$emit('add-todo', {id: uuid(), todo: this.newTodo});
       this.newTodo.todo = "";
     },
     deleteTodo(id, todo) {

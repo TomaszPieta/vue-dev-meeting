@@ -11,6 +11,7 @@
 <script>
 import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
+import uuid from 'uuid/v4'
 
 export default {
   name: 'app',
@@ -42,7 +43,7 @@ export default {
           this.todos.splice(id,1)
         },
         addTodo() {
-          this.todos.push({ todo: this.newTodo});
+          this.todos.push({todo: this.newTodo});
           this.newTodo = '';
         }
       }
