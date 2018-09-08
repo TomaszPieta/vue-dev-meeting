@@ -1,17 +1,16 @@
 <template>
   <div id="app">
     <h3>My awasome todo list:</h3>
-    <TodoList :todos="todos"></TodoList>
+    <todo-list :todos="todos"></todo-list>
     <p v-if="!todos.length">No products!</p>
-    <AddTodo></AddTodo>
-    <add-todo @add-todo="onAddTodo"></add-todo>
+    <add-todo @add-todo="addTodo"></add-todo>
     <button v-on:click="deleteLast">{{buttonLabel}}</button>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList'
-import Form from './components/AddTodo'
+import AddTodo from './components/AddTodo'
 
 export default {
   name: 'app',
@@ -30,7 +29,9 @@ export default {
           id: 3, todo: 'take umbrella'
         },{
           id: 4, todo: 'go to sleep'
-        }]
+        }],
+        buttonLabel: 'Delete Last Todo',
+
     }
   },
   methods: {
@@ -41,7 +42,7 @@ export default {
           this.todos.splice(id,1)
         },
         addTodo() {
-          this.todos.push({ todo: this.newTodo, id: 5 });
+          this.todos.push({ todo: this.newTodo});
           this.newTodo = '';
         }
       }

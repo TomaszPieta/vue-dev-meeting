@@ -12,9 +12,13 @@
     name: 'TodoList',
     props: {
       todos: {
-        type: Array,
-        required: false
+        type: Array
       }
+    },
+    methods: {
+      deleteTodo(id, todo) {
+          this.todos.splice(id,1)
+        }
     }
   }
 </script>
