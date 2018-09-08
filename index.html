@@ -45,7 +45,7 @@
     <ul>
       <li v-for="todo in todos">
         {{todo.id}} - {{todo.todo}} 
-        <button v-on:click="deleteTodo">X</button>
+        <button v-on:click="deleteTodo(todo.id)">X</button>
       </li>
     </ul>
     <p v-if="!todos.length">No products!</p>
@@ -87,7 +87,8 @@
         },
         addTodo(e) {
           e.preventDefault();
-          this.todos.push({ todo: this.newTodo })
+          this.todos.push({ todo: this.newTodo });
+          this.newTodo = '';
         }
       }
     })
