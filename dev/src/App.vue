@@ -4,6 +4,7 @@
     <TodoList :todos="todos"></TodoList>
     <p v-if="!todos.length">No products!</p>
     <AddTodo></AddTodo>
+    <add-todo @add-todo="onAddTodo"></add-todo>
     <button v-on:click="deleteLast">{{buttonLabel}}</button>
   </div>
 </template>

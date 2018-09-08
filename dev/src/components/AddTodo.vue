@@ -18,20 +18,20 @@
         }
       }
     },
-    methods: {
-      onSubmit() {
-        this.$validator.validateAll().then(result => {
-          if (!result) {
-            return;
-          }          
-          this.$emit('add-todo', {
-            id: uuid(),
-            ...this.newtodo
-          });
-          this.newtodo.name = '';
-          this.$validator.reset();
-        });
-      }
-    }
+    // methods: {
+    //   onSubmit() {
+    //     this.$validator.validateAll().then(result => {
+    //       if (!result) {
+    //         return;
+    //       }
+    //       this.$emit('add-todo', {
+    //         id: uuid(),
+    //         ...this.newtodo
+    //       });
+    //       this.newtodo.name = '';
+    //       this.$validator.reset();
+    //     });
+    //   }
+    // }
   }
 </script>
